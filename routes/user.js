@@ -5,8 +5,8 @@ require("../passport");
 
 const router = express.Router();
 
-router.post("/auth/google", passport.authenticate("google-token"), async (req, res) => {
-    res.status(200).json({ user: req.user });
+router.get("/me", passport.authenticate("google-token"), async (req, res) => {
+    res.status(200).json(req.user);
 });
 
 module.exports = router;

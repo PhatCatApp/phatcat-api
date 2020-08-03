@@ -11,10 +11,6 @@ const schema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    username: {
-        type: String,
-        unique: true,
-    },
     homes: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "home",

@@ -35,7 +35,11 @@ passport.use(
                 if (user) {
                     return done(null, user);
                 }
-                user = new User({ google_id: profile.id, email: profile.emails[0].value });
+                user = new User({
+                    google_id: profile.id,
+                    email: profile.emails[0].value,
+                    name: profile.name.givenName,
+                });
                 await user.save();
                 return done(null, user);
             } catch (error) {
